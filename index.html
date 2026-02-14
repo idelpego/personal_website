@@ -35,7 +35,7 @@
         radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.45), transparent 35%),
         radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.35), transparent 30%),
         linear-gradient(135deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
-      overflow: hidden;
+      overflow-x: hidden;
       padding: 1.25rem;
     }
 
@@ -132,6 +132,53 @@
       animation: bounce 1.8s ease-in-out infinite;
     }
 
+    .collage {
+      margin: 0.8rem auto 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      max-width: 540px;
+    }
+
+    .collage-item {
+      min-height: 110px;
+      border-radius: 16px;
+      border: 2px solid rgba(31, 31, 31, 0.12);
+      box-shadow: 0 8px 16px rgba(31, 31, 31, 0.13);
+      display: flex;
+      align-items: end;
+      justify-content: start;
+      padding: 0.55rem;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.84rem;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+      background-size: cover;
+      background-position: center;
+      text-align: left;
+    }
+
+    .headshot {
+      grid-column: 1 / -1;
+      min-height: 180px;
+      background-image:
+        linear-gradient(135deg, rgba(255, 0, 110, 0.65), rgba(58, 134, 255, 0.45)),
+        url("assets/headshot.jpg");
+    }
+
+    .photo-two {
+      background-image:
+        linear-gradient(135deg, rgba(255, 159, 28, 0.7), rgba(239, 71, 111, 0.35)),
+        url("assets/photo-2.jpg");
+    }
+
+    .photo-three {
+      background-image:
+        linear-gradient(135deg, rgba(6, 214, 160, 0.65), rgba(17, 138, 178, 0.45)),
+        url("assets/photo-3.jpg");
+    }
+
     .sparkles {
       font-size: clamp(1rem, 4vw, 1.45rem);
       margin: 0.9rem 0 0.6rem;
@@ -144,6 +191,33 @@
       font-weight: 500;
       max-width: 26ch;
       margin: 0 auto;
+    }
+
+    .bio {
+      margin: 0.95rem auto 0;
+      max-width: 54ch;
+      font-size: clamp(0.98rem, 3.5vw, 1.1rem);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .resume-link {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #1f1f1f;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      border: 2px solid #1f1f1f;
+      transition: transform 150ms ease, background 150ms ease, color 150ms ease;
+    }
+
+    .resume-link:hover {
+      transform: translateY(-1px);
+      background: #fff;
+      color: #1f1f1f;
     }
 
     @keyframes pop-in {
@@ -183,6 +257,22 @@
       .tab {
         font-size: 1rem;
       }
+
+      .collage {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        max-width: 620px;
+      }
+
+      .headshot {
+        grid-column: auto;
+        grid-row: 1 / 3;
+        min-height: 240px;
+      }
+
+      .photo-two,
+      .photo-three {
+        min-height: 115px;
+      }
     }
   </style>
 </head>
@@ -198,8 +288,19 @@
     </nav>
     <div class="eyebrow">The one and only</div>
     <h1>Izzie Del Pego</h1>
+    <section class="collage" aria-label="Photo collage">
+      <div class="collage-item headshot">Acting Headshot</div>
+      <div class="collage-item photo-two">Performance Photo</div>
+      <div class="collage-item photo-three">Behind the Scenes</div>
+    </section>
     <div class="sparkles" aria-hidden="true">★ ✦ ★ ✦ ★</div>
     <p>Bringing big sparkle energy, one awesome moment at a time.</p>
+    <p class="bio">
+      Izzie Del Pego is a dynamic performer with a strong on-camera presence and a deep love for
+      storytelling. Her work blends vibrant personality, disciplined craft, and a natural ability to
+      connect with audiences across stage and screen.
+    </p>
+    <a class="resume-link" href="resume.pdf" target="_blank" rel="noopener noreferrer">View CV / Resume</a>
   </main>
 </body>
 </html>
