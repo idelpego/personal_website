@@ -112,7 +112,9 @@
 
     .headshot {
       grid-column: 1 / -1;
-      min-height: 200px;
+      min-height: 0;
+      aspect-ratio: 1 / 1;
+      background-position: center 12%;
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.1)),
         url("assets/headshot.jpg");
@@ -300,7 +302,8 @@
       .headshot {
         grid-column: 2;
         grid-row: 1;
-        min-height: 370px;
+        min-height: 0;
+        aspect-ratio: 1 / 1;
       }
 
       .photo-2 {
