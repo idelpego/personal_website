@@ -120,28 +120,28 @@
         url("assets/headshot.jpg");
     }
 
-    .photo-1 {
+    .photo-5 {
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
-        url("assets/photo-1.jpg");
+        url("assets/photo5.jpg");
     }
 
-    .photo-2 {
+    .photo-6 {
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
-        url("assets/photo-2.jpg");
+        url("assets/photo6.jpg");
     }
 
-    .photo-3 {
+    .photo-7 {
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
-        url("assets/photo-3.jpg");
+        url("assets/photo7.jpg");
     }
 
-    .photo-4 {
+    .photo-8 {
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
-        url("assets/photo-4.jpg");
+        url("assets/photo8.jpg");
     }
 
     .bio-wrap {
@@ -290,38 +290,15 @@
       }
 
       .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        align-items: stretch;
       }
 
-      .photo-1 {
-        grid-column: 1;
-        grid-row: 1 / span 2;
-        min-height: 580px;
-      }
-
-      .headshot {
-        grid-column: 2;
-        grid-row: 1;
-        min-height: 0;
-        aspect-ratio: 1 / 1;
-      }
-
-      .photo-2 {
-        grid-column: 3;
-        grid-row: 1;
-        min-height: 370px;
-      }
-
-      .photo-3 {
-        grid-column: 2;
-        grid-row: 2;
-        min-height: 190px;
-      }
-
-      .photo-4 {
-        grid-column: 3;
-        grid-row: 2;
-        min-height: 190px;
+      .photo-5,
+      .photo-6,
+      .photo-7,
+      .photo-8 {
+        min-height: 340px;
       }
 
       .bio-row {
@@ -357,11 +334,10 @@
 
   <main class="gallery-band">
     <section class="gallery-grid" aria-label="Photo collage">
-      <div class="tile photo-1" role="img" aria-label="Performance still"></div>
-      <div class="tile headshot" role="img" aria-label="Acting headshot"></div>
-      <div class="tile photo-2" role="img" aria-label="On stage performance"></div>
-      <div class="tile photo-3" role="img" aria-label="Rehearsal moment"></div>
-      <div class="tile photo-4" role="img" aria-label="Cast group photo"></div>
+      <div class="tile photo-5" role="img" aria-label="Gallery photo five"></div>
+      <div class="tile photo-6" role="img" aria-label="Gallery photo six"></div>
+      <div class="tile photo-7" role="img" aria-label="Gallery photo seven"></div>
+      <div class="tile photo-8" role="img" aria-label="Gallery photo eight"></div>
     </section>
 
     <section class="bio-wrap" id="about" aria-label="Professional bio">
