@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Izzie Del Pego</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Bungee&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #ffd166;
+      --bg-2: #ef476f;
+      --bg-3: #06d6a0;
+      --ink: #1f1f1f;
+      --card: rgba(255, 255, 255, 0.8);
+      --shadow: rgba(31, 31, 31, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Fredoka", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.45), transparent 35%),
+        radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.35), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+      overflow: hidden;
+      padding: 1.25rem;
+    }
+
+    .blob {
+      position: fixed;
+      width: 44vw;
+      height: 44vw;
+      max-width: 260px;
+      max-height: 260px;
+      border-radius: 50%;
+      filter: blur(12px);
+      opacity: 0.35;
+      z-index: 0;
+      animation: drift 8s ease-in-out infinite alternate;
+    }
+
+    .blob.one {
+      background: #ff9f1c;
+      top: -6vw;
+      left: -10vw;
+    }
+
+    .blob.two {
+      background: #118ab2;
+      bottom: -8vw;
+      right: -12vw;
+      animation-delay: 0.7s;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: min(92vw, 680px);
+      background: var(--card);
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      border-radius: 28px;
+      box-shadow: 0 18px 45px var(--shadow);
+      backdrop-filter: blur(6px);
+      text-align: center;
+      padding: 2rem 1.25rem 1.75rem;
+      animation: pop-in 600ms ease-out both;
+    }
+
+    .eyebrow {
+      font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-family: "Bungee", cursive;
+      font-size: clamp(2rem, 11vw, 5rem);
+      line-height: 0.98;
+      text-transform: uppercase;
+      text-wrap: balance;
+      color: #fff;
+      text-shadow:
+        0 3px 0 #ff006e,
+        0 6px 0 #3a86ff,
+        0 9px 18px rgba(0, 0, 0, 0.25);
+      animation: bounce 1.8s ease-in-out infinite;
+    }
+
+    .sparkles {
+      font-size: clamp(1rem, 4vw, 1.45rem);
+      margin: 0.9rem 0 0.6rem;
+      letter-spacing: 0.15em;
+      animation: twinkle 1.4s steps(2, end) infinite;
+    }
+
+    p {
+      font-size: clamp(1rem, 3.8vw, 1.28rem);
+      font-weight: 500;
+      max-width: 26ch;
+      margin: 0 auto;
+    }
+
+    @keyframes pop-in {
+      from {
+        transform: scale(0.92) translateY(18px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    @keyframes twinkle {
+      50% { opacity: 0.55; transform: scale(0.98); }
+    }
+
+    @keyframes drift {
+      from { transform: translateY(0) translateX(0) rotate(0deg); }
+      to { transform: translateY(16px) translateX(10px) rotate(10deg); }
+    }
+
+    @media (min-width: 760px) {
+      main {
+        padding: 2.6rem 2.1rem 2.2rem;
+      }
+
+      .sparkles {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob one" aria-hidden="true"></div>
+  <div class="blob two" aria-hidden="true"></div>
+
+  <main>
+    <div class="eyebrow">The one and only</div>
+    <h1>Izzie Del Pego</h1>
+    <div class="sparkles" aria-hidden="true">★ ✦ ★ ✦ ★</div>
+    <p>Bringing big sparkle energy, one awesome moment at a time.</p>
+  </main>
+</body>
+</html>
