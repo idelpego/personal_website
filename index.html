@@ -9,10 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #111111;
-      --muted: #a4a4a4;
-      --paper: #f5f5f5;
-      --band: #9f0f11;
+      --ink: #151327;
+      --muted: #6d6a8f;
+      --paper: #fff8eb;
+      --band: #a1112f;
+      --band-2: #ef476f;
+      --band-3: #ff9f1c;
+      --accent-1: #3a86ff;
+      --accent-2: #06d6a0;
+      --accent-3: #ff006e;
       --card: #ffffff;
     }
 
@@ -25,13 +30,18 @@
     body {
       font-family: "Montserrat", sans-serif;
       color: var(--ink);
-      background: var(--paper);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(255, 214, 102, 0.3), transparent 22%),
+        radial-gradient(circle at 90% 0%, rgba(58, 134, 255, 0.16), transparent 24%),
+        var(--paper);
       line-height: 1.45;
     }
 
     .site-header {
-      background: #f2f2f2;
-      border-bottom: 1px solid #e6e6e6;
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 235, 0.95)),
+        linear-gradient(100deg, rgba(58, 134, 255, 0.09), rgba(239, 71, 111, 0.08));
+      border-bottom: 4px solid rgba(255, 159, 28, 0.35);
       padding: 3.25rem 1rem 1.4rem;
       text-align: center;
     }
@@ -42,6 +52,10 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 2rem;
+      background: linear-gradient(90deg, #ff006e, #8338ec 45%, #3a86ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .site-nav {
@@ -58,16 +72,23 @@
       font-weight: 500;
       font-size: 0.86rem;
       color: var(--muted);
-      transition: color 140ms ease;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      transition: color 140ms ease, background 140ms ease, transform 140ms ease;
     }
 
     .site-nav a:hover,
     .site-nav a.active {
-      color: #2d2d2d;
+      color: #ffffff;
+      background: linear-gradient(90deg, #ff006e, #3a86ff);
+      transform: translateY(-1px);
     }
 
     .gallery-band {
-      background: var(--band);
+      background:
+        radial-gradient(circle at 8% 20%, rgba(255, 255, 255, 0.14), transparent 28%),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.12), transparent 24%),
+        linear-gradient(145deg, var(--band), var(--band-2) 55%, var(--band-3));
       padding: 1.35rem;
     }
 
@@ -75,21 +96,23 @@
       max-width: 1080px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.7rem;
     }
 
     .tile {
-      min-height: 230px;
+      min-height: 145px;
       background-position: center;
       background-size: cover;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+      border: 3px solid rgba(255, 255, 255, 0.22);
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
       animation: fade-up 460ms ease both;
     }
 
     .headshot {
-      min-height: 330px;
+      grid-column: 1 / -1;
+      min-height: 200px;
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.1)),
         url("assets/headshot.jpg");
@@ -122,7 +145,7 @@
     .bio-wrap {
       max-width: 1080px;
       margin: 2rem auto 0;
-      color: #ffffff;
+      color: #fff7fb;
     }
 
     .bio-intro {
@@ -135,6 +158,7 @@
       font-size: clamp(1.3rem, 4.5vw, 3rem);
       font-weight: 700;
       margin-bottom: 1.05rem;
+      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.2);
     }
 
     .bio-intro p {
@@ -157,10 +181,12 @@
     }
 
     .bio-photo {
-      min-height: 300px;
+      min-height: 220px;
       background-size: cover;
       background-position: center;
-      border: 4px solid rgba(0, 0, 0, 0.18);
+      border: 4px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
     }
 
     .bio-photo.left {
@@ -183,6 +209,7 @@
       margin-bottom: 0.6rem;
       font-size: clamp(1.2rem, 3.8vw, 2rem);
       line-height: 1.2;
+      color: #fff;
     }
 
     .resume-link {
@@ -194,12 +221,16 @@
       font-size: 1rem;
       font-weight: 700;
       color: #ffffff;
-      background: #3e4348;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-3));
       padding: 0.8rem 1.45rem;
+      box-shadow: 0 9px 22px rgba(0, 0, 0, 0.22);
+      transition: transform 130ms ease, filter 130ms ease;
     }
 
     .resume-link:hover {
-      background: #2b2f33;
+      transform: translateY(-1px);
+      filter: brightness(1.06);
     }
 
     .contact-icons {
@@ -211,16 +242,21 @@
     }
 
     .contact-icons a {
-      color: #d8d8d8;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
       text-decoration: none;
       text-transform: uppercase;
       font-size: 0.8rem;
       letter-spacing: 0.07em;
       font-weight: 600;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 0.35rem 0.65rem;
     }
 
     .contact-icons a:hover {
-      color: #ffffff;
+      color: #151327;
+      background: #ffffff;
     }
 
     @keyframes fade-up {
