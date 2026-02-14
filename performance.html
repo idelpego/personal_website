@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance | Izzie Del Pego</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Bungee&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #00bbf9;
+      --bg-2: #9b5de5;
+      --bg-3: #f15bb5;
+      --ink: #1c1c1c;
+      --card: rgba(255, 255, 255, 0.86);
+      --shadow: rgba(28, 28, 28, 0.22);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Fredoka", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.45), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.4), transparent 28%),
+        linear-gradient(145deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      padding: 1.2rem;
+      overflow: hidden;
+    }
+
+    main {
+      width: min(94vw, 760px);
+      background: var(--card);
+      border-radius: 28px;
+      border: 3px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 0 18px 44px var(--shadow);
+      padding: 1.25rem 1rem 1.5rem;
+      text-align: center;
+      animation: float-in 650ms ease-out both;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.45rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tab {
+      text-decoration: none;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid rgba(28, 28, 28, 0.15);
+      border-radius: 999px;
+      padding: 0.45rem 0.78rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: transform 160ms ease;
+    }
+
+    .tab:hover { transform: translateY(-1px); }
+    .tab.active { background: #1c1c1c; color: #fff; border-color: #1c1c1c; }
+
+    h1 {
+      font-family: "Bungee", cursive;
+      font-size: clamp(1.8rem, 9vw, 3.8rem);
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 3px 0 #ff006e, 0 6px 0 #3a86ff, 0 10px 18px rgba(0, 0, 0, 0.2);
+      line-height: 1.02;
+      margin-bottom: 0.85rem;
+    }
+
+    p {
+      font-size: clamp(1rem, 3.8vw, 1.2rem);
+      max-width: 34ch;
+      margin: 0 auto;
+      font-weight: 500;
+    }
+
+    .chips {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .chip {
+      padding: 0.4rem 0.65rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid rgba(28, 28, 28, 0.13);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    @keyframes float-in {
+      from { transform: translateY(18px) scale(0.95); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    @media (min-width: 760px) {
+      main { padding: 1.55rem 2rem 2rem; }
+      .tab { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Site sections">
+      <a class="tab" href="index.html">Home</a>
+      <a class="tab active" href="performance.html">Performance</a>
+      <a class="tab" href="costuming.html">Costuming</a>
+    </nav>
+    <h1>Performance</h1>
+    <p>Izzie Del Pego lights up the stage with big personality, sharp timing, and pure crowd-hype magic.</p>
+    <div class="chips" aria-label="Performance highlights">
+      <span class="chip">Live Energy</span>
+      <span class="chip">Bold Presence</span>
+      <span class="chip">Audience Spark</span>
+      <span class="chip">Star Power</span>
+    </div>
+  </main>
+</body>
+</html>
