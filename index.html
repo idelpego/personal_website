@@ -290,14 +290,17 @@
       }
 
       .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         align-items: stretch;
       }
 
+      .headshot,
       .photo-5,
       .photo-6,
       .photo-7,
       .photo-8 {
+        grid-column: auto;
+        aspect-ratio: auto;
         min-height: 340px;
       }
 
@@ -334,6 +337,7 @@
 
   <main class="gallery-band">
     <section class="gallery-grid" aria-label="Photo collage">
+      <div class="tile headshot" role="img" aria-label="Acting headshot"></div>
       <div class="tile photo-5" role="img" aria-label="Gallery photo five"></div>
       <div class="tile photo-6" role="img" aria-label="Gallery photo six"></div>
       <div class="tile photo-7" role="img" aria-label="Gallery photo seven"></div>
