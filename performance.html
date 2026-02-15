@@ -39,6 +39,40 @@
       border-bottom: 4px solid rgba(255, 159, 28, 0.35);
       padding: 3.25rem 1rem 1.4rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .site-header::before,
+    .site-header::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(0.2px);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .site-header::before {
+      width: 180px;
+      height: 180px;
+      left: -46px;
+      top: -40px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 42%),
+        conic-gradient(from 120deg, #ff006e, #ff9f1c, #06d6a0, #3a86ff, #ff006e);
+    }
+
+    .site-header::after {
+      width: 145px;
+      height: 145px;
+      right: -28px;
+      top: 10px;
+      background:
+        radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 44%),
+        conic-gradient(from 30deg, #8338ec, #3a86ff, #06d6a0, #ffbe0b, #8338ec);
     }
 
     .site-title {
@@ -51,6 +85,33 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      position: relative;
+      display: inline-block;
+      padding: 0 0.75rem;
+    }
+
+    .site-title::before,
+    .site-title::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: 50%;
+      transform: translateY(-50%) rotate(22deg);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .site-title::before {
+      left: -16px;
+      background: linear-gradient(135deg, #ff006e, #ffbe0b);
+      box-shadow: 0 0 0 4px rgba(255, 0, 110, 0.12);
+    }
+
+    .site-title::after {
+      right: -16px;
+      background: linear-gradient(135deg, #3a86ff, #06d6a0);
+      box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.12);
     }
 
     .site-nav {
@@ -421,7 +482,7 @@
 
       <div class="bottom-links" aria-label="Quick contact and CV links">
         <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Full CV</a>
-        <a href="https://www.instagram.com/isoldedelpego/#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/izziedelpego/#" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="mailto:izziedelpego@gmail.com">Email</a>
       </div>
     </section>

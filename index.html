@@ -44,6 +44,40 @@
       border-bottom: 4px solid rgba(255, 159, 28, 0.35);
       padding: 3.25rem 1rem 1.4rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .site-header::before,
+    .site-header::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(0.2px);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .site-header::before {
+      width: 180px;
+      height: 180px;
+      left: -46px;
+      top: -40px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 42%),
+        conic-gradient(from 120deg, #ff006e, #ff9f1c, #06d6a0, #3a86ff, #ff006e);
+    }
+
+    .site-header::after {
+      width: 145px;
+      height: 145px;
+      right: -28px;
+      top: 10px;
+      background:
+        radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 44%),
+        conic-gradient(from 30deg, #8338ec, #3a86ff, #06d6a0, #ffbe0b, #8338ec);
     }
 
     .site-title {
@@ -56,6 +90,33 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      position: relative;
+      display: inline-block;
+      padding: 0 0.75rem;
+    }
+
+    .site-title::before,
+    .site-title::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: 50%;
+      transform: translateY(-50%) rotate(22deg);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .site-title::before {
+      left: -16px;
+      background: linear-gradient(135deg, #ff006e, #ffbe0b);
+      box-shadow: 0 0 0 4px rgba(255, 0, 110, 0.12);
+    }
+
+    .site-title::after {
+      right: -16px;
+      background: linear-gradient(135deg, #3a86ff, #06d6a0);
+      box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.12);
     }
 
     .site-nav {
@@ -536,14 +597,14 @@
       <div class="bio-intro">
         <h2>Performer - Technician - Activist</h2>
         <p>
-          Isolde Emilio Del Pego is a versatile performing artist and costume technician from San Diego.
+          Izzie Emilio Del Pego is a versatile performing artist and costume technician from San Diego.
           He began his training at Idyllwild Arts as a Dramatic Arts major, building a strong foundation
           in acting and dance. He is currently pursuing a BFA in Musical Theatre at Chico State Theatre (CST),
           where he continues to develop both his performance skills and his growing expertise in theatrical
           costuming. At CST, he works as a costume stitcher and as a member of the wardrobe teams.
         </p>
         <p>
-          Isolde is passionate about theatrical activism and community engagement, and he strives to create
+          Izzie is passionate about theatrical activism and community engagement, and he strives to create
           work that sparks dialogue and connection. One of his favorite performance experiences has been
           playing Ernst Ludwig in <em>Cabaret</em>, where he had the opportunity to engage with a powerful
           and historically resonant story.
@@ -566,10 +627,10 @@
         </div>
         <div class="bio-copy">
           <h3>Supporting Artists and Building Community</h3>
-          As a committed advocate for community theatre and accessible public art, Isolde upholds a vision
+          As a committed advocate for community theatre and accessible public art, Izzie upholds a vision
           of a humane and equitable society grounded in universal participation in artistic creation. He
           attended Idyllwild Arts Academy, where he developed a deep love not only for creating but for
-          witnessing the creative expression of others. Because of this, Isolde believes that the foundation
+          witnessing the creative expression of others. Because of this, Izzie believes that the foundation
           of any strong community lies in mutual respect for each person's passions and in the belief that
           your voice can be heard, whether on the page of a book, on a stage, or within your government.
         </div>
@@ -591,7 +652,7 @@
         </div>
         <div class="bio-copy">
           <h3>Theatrical Activism</h3>
-          Isolde is committed to using his creative work to help progressive and emerging productions reach
+          Izzie is committed to using his creative work to help progressive and emerging productions reach
           broad and diverse audiences. A strong advocate for anti-recidivism prison practices, LGBTQ+ rights,
           and mindful consumerism, he believes deeply in empowering audiences through feminist storytelling,
           queer-centered narratives, and works that model strength through empathy.
@@ -604,7 +665,7 @@
 
       <div class="contact-icons" id="contact" aria-label="Contact links">
         <a href="mailto:izziedelpego@gmail.com">Email</a>
-        <a href="https://www.instagram.com/isoldedelpego/#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/izziedelpego/#" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
     </section>
   </main>
