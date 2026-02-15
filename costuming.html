@@ -268,17 +268,21 @@
     .costume-collection img {
       width: 100%;
       height: auto;
+      aspect-ratio: 4 / 3;
       display: block;
-      max-height: 360px;
-      object-fit: cover;
-      object-position: center 30%;
+      max-height: 460px;
+      object-fit: contain;
+      object-position: center;
+      background: #121212;
     }
 
     .collection-flip {
       position: relative;
       perspective: 1200px;
-      min-height: 260px;
+      min-height: 0;
+      aspect-ratio: 4 / 3;
       cursor: pointer;
+      background: #121212;
     }
 
     .collection-flip-inner {
@@ -295,12 +299,14 @@
       inset: 0;
       backface-visibility: hidden;
       min-height: inherit;
+      background-repeat: no-repeat;
+      background-color: #121212;
     }
 
     .collection-flip-front {
-      background-image: url("assets/photo10.HEIC");
-      background-size: cover;
-      background-position: center 30%;
+      background-image: url("assets/photo10.jpg");
+      background-size: contain;
+      background-position: center;
     }
 
     .collection-flip-back {
@@ -340,6 +346,32 @@
       font-size: 0.95rem;
       line-height: 1.45;
       color: #2d2d2d;
+    }
+
+    .bottom-links {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .bottom-links a {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.07em;
+      font-weight: 600;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 0.35rem 0.65rem;
+    }
+
+    .bottom-links a:hover {
+      color: #151327;
+      background: #ffffff;
     }
 
     @media (max-width: 759px) {
@@ -431,7 +463,7 @@
         <div class="costume-collection" aria-label="Twelfth Night gallery collection">
           <div class="collection-flip" tabindex="0" role="img" aria-label="Twelfth Night costuming detail photo. Flip for alterations details.">
             <div class="collection-flip-inner">
-              <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo9.jpg.HEIC');"></div>
+              <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo9.jpg');"></div>
               <div class="collection-flip-face collection-flip-back">Alterations: resewed larger sleeves, attached embroidery, tacked sleeves</div>
             </div>
           </div>
@@ -456,7 +488,7 @@
           <div class="collection-flip" tabindex="0" role="img" aria-label="Personal Projects costume build photo. Flip for details.">
             <div class="collection-flip-inner">
               <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo 11.JPG');"></div>
-              <div class="collection-flip-face collection-flip-back">Sharkboy and LavaGirl Costumes<br />Crafted with foam, paint, cardboard, and superglue<br />Created with few resources before my employement as a stitcher</div>
+              <div class="collection-flip-face collection-flip-back">Sharkboy and LavaGirl Costumes<br />Crafted with foam, paint, cardboard, and superglue<br />Created with few resources before my employment as a stitcher</div>
             </div>
           </div>
           <div class="collection-copy">
@@ -465,6 +497,12 @@
           </div>
         </div>
       </section>
+
+      <div class="bottom-links" aria-label="Quick contact and CV links">
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Full CV</a>
+        <a href="https://www.instagram.com/isoldedelpego/#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:izziedelpego@gmail.com">Email</a>
+      </div>
     </section>
   </main>
 
