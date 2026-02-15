@@ -102,43 +102,128 @@
 
     .tile {
       min-height: 145px;
-      background-position: center;
-      background-size: cover;
-      border: 3px solid rgba(255, 255, 255, 0.22);
-      border-radius: 14px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      border-radius: 18px;
       animation: fade-up 460ms ease both;
+    }
+
+    .flip-card {
+      position: relative;
+      cursor: pointer;
+      perspective: 1200px;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      transform-style: preserve-3d;
+      transition: transform 650ms ease;
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      min-height: inherit;
+      backface-visibility: hidden;
+      background-size: cover;
+      background-position: center 30%;
+      border: 3px solid rgba(255, 255, 255, 0.22);
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 0.75rem;
+      background:
+        linear-gradient(145deg, rgba(58, 134, 255, 0.94), rgba(255, 0, 110, 0.92));
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+
+    .flip-back strong {
+      display: block;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.18rem;
+    }
+
+    .flip-back span {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.25;
+      margin-bottom: 0.48rem;
+    }
+
+    .flip-card.is-flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .flip-card:hover .flip-inner,
+      .flip-card:focus-visible .flip-inner {
+        transform: rotateY(180deg);
+      }
     }
 
     .headshot {
       grid-column: 1 / -1;
       min-height: 0;
       aspect-ratio: 1 / 1;
-      background-position: center 12%;
+      border-radius: 44% 56% 50% 50% / 46% 44% 56% 54%;
+    }
+
+    .headshot .flip-front {
+      background-position: center 14%;
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.1)),
         url("assets/headshot.jpg");
     }
 
     .photo-5 {
+      border-radius: 56% 44% 47% 53% / 36% 56% 44% 64%;
+    }
+
+    .photo-5 .flip-front {
+      background-position: center 32%;
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
         url("assets/photo5.jpg");
     }
 
     .photo-6 {
+      border-radius: 38% 62% 52% 48% / 52% 42% 58% 48%;
+    }
+
+    .photo-6 .flip-front {
+      background-position: center 26%;
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
         url("assets/photo6.jpg");
     }
 
     .photo-7 {
+      border-radius: 58% 42% 40% 60% / 52% 46% 54% 48%;
+    }
+
+    .photo-7 .flip-front {
+      background-position: center 34%;
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
         url("assets/photo7.jpg");
     }
 
     .photo-8 {
+      border-radius: 44% 56% 58% 42% / 44% 58% 42% 56%;
+    }
+
+    .photo-8 .flip-front {
+      background-position: center 30%;
       background-image:
         linear-gradient(160deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.12)),
         url("assets/photo8.jpg");
@@ -184,18 +269,29 @@
 
     .bio-photo {
       min-height: 220px;
-      background-size: cover;
-      background-position: center;
-      border: 4px solid rgba(255, 255, 255, 0.35);
-      border-radius: 12px;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
+      border-radius: 24px;
+    }
+
+    .bio-photo .flip-face {
+      border-width: 4px;
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
     .bio-photo.left {
+      border-radius: 56% 44% 52% 48% / 38% 58% 42% 62%;
+    }
+
+    .bio-photo.left .flip-front {
+      background-position: center 22%;
       background-image: url("assets/photo-3.jpg");
     }
 
     .bio-photo.right {
+      border-radius: 42% 58% 44% 56% / 56% 44% 56% 44%;
+    }
+
+    .bio-photo.right .flip-front {
+      background-position: center 28%;
       background-image: url("assets/photo-4.jpg");
     }
 
@@ -304,6 +400,15 @@
         min-height: 340px;
       }
 
+      .headshot .flip-front {
+        background-position: center 12%;
+      }
+
+      .photo-5 .flip-front { background-position: center 28%; }
+      .photo-6 .flip-front { background-position: center 24%; }
+      .photo-7 .flip-front { background-position: center 30%; }
+      .photo-8 .flip-front { background-position: center 26%; }
+
       .bio-row {
         grid-template-columns: 1fr 1fr;
         gap: 2.4rem;
@@ -312,6 +417,9 @@
       .bio-photo {
         min-height: 420px;
       }
+
+      .bio-photo.left .flip-front { background-position: center 20%; }
+      .bio-photo.right .flip-front { background-position: center 24%; }
 
       .bio-copy {
         text-align: left;
@@ -331,17 +439,77 @@
       <a class="active" href="index.html">About</a>
       <a href="performance.html">Performance</a>
       <a href="costuming.html">Costuming</a>
-      <a href="#contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main class="gallery-band">
     <section class="gallery-grid" aria-label="Photo collage">
-      <div class="tile headshot" role="img" aria-label="Acting headshot"></div>
-      <div class="tile photo-5" role="img" aria-label="Gallery photo five"></div>
-      <div class="tile photo-6" role="img" aria-label="Gallery photo six"></div>
-      <div class="tile photo-7" role="img" aria-label="Gallery photo seven"></div>
-      <div class="tile photo-8" role="img" aria-label="Gallery photo eight"></div>
+      <div class="flip-card tile headshot" role="img" aria-label="Acting headshot by Add Photographer Name at Headshot Session" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true"></div>
+          <div class="flip-face flip-back">
+            <div>
+              <strong>Photographer</strong>
+              <span>Add Photographer Name</span>
+              <strong>Event</strong>
+              <span>Headshot Session</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card tile photo-5" role="img" aria-label="Gallery photo five by Add Photographer Name at Add Event Name" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true"></div>
+          <div class="flip-face flip-back">
+            <div>
+              <strong>Photographer</strong>
+              <span>Add Photographer Name</span>
+              <strong>Event</strong>
+              <span>Add Event Name</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card tile photo-6" role="img" aria-label="Gallery photo six by Add Photographer Name at Add Event Name" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true"></div>
+          <div class="flip-face flip-back">
+            <div>
+              <strong>Photographer</strong>
+              <span>Add Photographer Name</span>
+              <strong>Event</strong>
+              <span>Add Event Name</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card tile photo-7" role="img" aria-label="Gallery photo seven by Add Photographer Name at Add Event Name" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true"></div>
+          <div class="flip-face flip-back">
+            <div>
+              <strong>Photographer</strong>
+              <span>Add Photographer Name</span>
+              <strong>Event</strong>
+              <span>Add Event Name</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card tile photo-8" role="img" aria-label="Gallery photo eight by Add Photographer Name at Add Event Name" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true"></div>
+          <div class="flip-face flip-back">
+            <div>
+              <strong>Photographer</strong>
+              <span>Add Photographer Name</span>
+              <strong>Event</strong>
+              <span>Add Event Name</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="bio-wrap" id="about" aria-label="Professional bio">
@@ -363,7 +531,19 @@
       </div>
 
       <div class="bio-row">
-        <div class="bio-photo left" role="img" aria-label="Community engagement portrait"></div>
+        <div class="flip-card bio-photo left" role="img" aria-label="Community engagement portrait by Add Photographer Name at Community Engagement Event" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-face flip-front" aria-hidden="true"></div>
+            <div class="flip-face flip-back">
+              <div>
+                <strong>Photographer</strong>
+                <span>Add Photographer Name</span>
+                <strong>Event</strong>
+                <span>Community Engagement Event</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="bio-copy">
           <h3>Supporting Artists and Building Community</h3>
           As a committed advocate for community theatre and accessible public art, Isolde upholds a vision
@@ -376,7 +556,19 @@
       </div>
 
       <div class="bio-row reverse">
-        <div class="bio-photo right" role="img" aria-label="Theatrical ensemble performance"></div>
+        <div class="flip-card bio-photo right" role="img" aria-label="Theatrical ensemble performance by Add Photographer Name at Add Production Name" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-face flip-front" aria-hidden="true"></div>
+            <div class="flip-face flip-back">
+              <div>
+                <strong>Photographer</strong>
+                <span>Add Photographer Name</span>
+                <strong>Event</strong>
+                <span>Add Production Name</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="bio-copy">
           <h3>Theatrical Activism</h3>
           Isolde is committed to using his creative work to help progressive and emerging productions reach
@@ -396,5 +588,17 @@
       </div>
     </section>
   </main>
+  <script>
+    const flipCards = document.querySelectorAll('.flip-card');
+    const isTouchMode = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+    if (isTouchMode) {
+      flipCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('is-flipped');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
