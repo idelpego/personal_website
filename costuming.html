@@ -348,6 +348,46 @@
       color: #2d2d2d;
     }
 
+    .show-gallery {
+      border: 2px solid rgba(28, 28, 28, 0.12);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      margin-top: 0.55rem;
+    }
+
+    .show-gallery summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .show-gallery summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .show-cover {
+      min-height: 120px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: end;
+      padding: 0.8rem;
+      color: #fff;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+      border-bottom: 2px solid rgba(28, 28, 28, 0.1);
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.58));
+    }
+
+    .show-cover.twelfth { background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.58)), url("assets/photo9.jpg"); }
+    .show-cover.sponge { background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.58)), url("assets/photo10.jpg"); }
+    .show-cover.personal { background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.58)), url("assets/photo%2011.JPG"); }
+
+    .show-gallery-content {
+      padding: 0.8rem;
+    }
+
     .bottom-links {
       margin-top: 1.2rem;
       display: flex;
@@ -399,6 +439,7 @@
       .shows-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .placeholder-grid { grid-template-columns: repeat(4, 1fr); }
       .placeholder { min-height: 160px; }
+      .show-cover { min-height: 140px; }
     }
   </style>
 </head>
@@ -460,42 +501,65 @@
       <section id="panel-gallery" class="panel" role="tabpanel" aria-label="Gallery">
                 <p class="gallery-note"><strong>Click photos to learn more about my work</strong></p>
         <p class="gallery-note">Costuming gallery collection.</p>
-        <div class="costume-collection" aria-label="Twelfth Night gallery collection">
-          <div class="collection-flip" tabindex="0" role="img" aria-label="Twelfth Night costuming detail photo. Flip for alterations details.">
-            <div class="collection-flip-inner">
-              <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo9.jpg');"></div>
-              <div class="collection-flip-face collection-flip-back">Alterations: resewed larger sleeves, attached embroidery, tacked sleeves</div>
+        <details class="show-gallery">
+          <summary>
+            <div class="show-cover twelfth">Twelfth Night</div>
+          </summary>
+          <div class="show-gallery-content">
+            <div class="costume-collection" aria-label="Twelfth Night gallery collection">
+              <div class="collection-flip" tabindex="0" role="img" aria-label="Twelfth Night costuming detail photo. Flip for alterations details.">
+                <div class="collection-flip-inner">
+                  <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo9.jpg');"></div>
+                  <div class="collection-flip-face collection-flip-back">Alterations: resewed larger sleeves, attached embroidery, tacked sleeves</div>
+                </div>
+              </div>
+              <div class="collection-copy">
+                <h3>Twelfth Night</h3>
+                <p>Shop Stitcher: Alterations including attaching embroidery, hemming, tacking sleeves, resewing seams, and pressing clothes.</p>
+              </div>
             </div>
           </div>
-          <div class="collection-copy">
-            <h3>Twelfth Night</h3>
-            <p>Shop Stitcher: Alterations including attaching embroidery, hemming, tacking sleeves, resewing seams, and pressing clothes.</p>
-          </div>
-        </div>
-        <div class="costume-collection" aria-label="Spongebob The Musical gallery collection">
-          <div class="collection-flip" tabindex="0" role="img" aria-label="Spongebob The Musical jellyfish construction photo. Flip for details.">
-            <div class="collection-flip-inner">
-              <div class="collection-flip-face collection-flip-front" aria-hidden="true"></div>
-              <div class="collection-flip-face collection-flip-back">Jellyfish painted and put together</div>
+        </details>
+
+        <details class="show-gallery">
+          <summary>
+            <div class="show-cover sponge">Spongebob The Musical</div>
+          </summary>
+          <div class="show-gallery-content">
+            <div class="costume-collection" aria-label="Spongebob The Musical gallery collection">
+              <div class="collection-flip" tabindex="0" role="img" aria-label="Spongebob The Musical jellyfish construction photo. Flip for details.">
+                <div class="collection-flip-inner">
+                  <div class="collection-flip-face collection-flip-front" aria-hidden="true"></div>
+                  <div class="collection-flip-face collection-flip-back">Jellyfish painted and put together</div>
+                </div>
+              </div>
+              <div class="collection-copy">
+                <h3>Spongebob The Musical</h3>
+                <p>Shop Stitcher: Alterations include crafting Jellyfish</p>
+              </div>
             </div>
           </div>
-          <div class="collection-copy">
-            <h3>Spongebob The Musical</h3>
-            <p>Shop Stitcher: Alterations include crafting Jellyfish</p>
-          </div>
-        </div>
-        <div class="costume-collection" aria-label="Personal Projects gallery collection">
-          <div class="collection-flip" tabindex="0" role="img" aria-label="Personal Projects costume build photo. Flip for details.">
-            <div class="collection-flip-inner">
-              <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo 11.JPG');"></div>
-              <div class="collection-flip-face collection-flip-back">Sharkboy and LavaGirl Costumes<br />Crafted with foam, paint, cardboard, and superglue<br />Created with few resources before my employment as a stitcher</div>
+        </details>
+
+        <details class="show-gallery">
+          <summary>
+            <div class="show-cover personal">Personal Projects</div>
+          </summary>
+          <div class="show-gallery-content">
+            <div class="costume-collection" aria-label="Personal Projects gallery collection">
+              <div class="collection-flip" tabindex="0" role="img" aria-label="Personal Projects costume build photo. Flip for details.">
+                <div class="collection-flip-inner">
+                  <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo 11.JPG');"></div>
+                  <div class="collection-flip-face collection-flip-back">Sharkboy and LavaGirl Costumes<br />Crafted with foam, paint, cardboard, and superglue<br />Created with few resources before my employment as a stitcher</div>
+                </div>
+              </div>
+              <div class="collection-copy">
+                <h3>Personal Projects</h3>
+                <p>Personal Projects: halloween costumes amd sewing practice which includes unfinished work and work that was completed before I was taught costume crafting techniques</p>
+              </div>
             </div>
           </div>
-          <div class="collection-copy">
-            <h3>Personal Projects</h3>
-            <p>Personal Projects: halloween costumes amd sewing practice which includes unfinished work and work that was completed before I was taught costume crafting techniques</p>
-          </div>
-        </div>
+        </details>
       </section>
 
       <div class="bottom-links" aria-label="Quick contact and CV links">
