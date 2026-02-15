@@ -283,6 +283,22 @@
       border: 2px solid rgba(28, 28, 28, 0.12);
     }
 
+    @media (max-width: 759px) {
+      .resume-wrap {
+        text-align: center;
+      }
+
+      .resume-preview {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .resume-print {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
     @media (min-width: 760px) {
       .site-header { padding-top: 4.6rem; }
       .site-nav { gap: 2.4rem; }
@@ -352,6 +368,7 @@
       </section>
 
       <section id="panel-gallery" class="panel" role="tabpanel" aria-label="Gallery">
+                <p class="gallery-note"><strong>Click photos to learn more about my work</strong></p>
         <p class="gallery-note">Tap the show cover to open gallery photos and show details.</p>
 
         <details class="show-gallery" open>

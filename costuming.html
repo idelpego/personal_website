@@ -256,6 +256,108 @@
       padding: 0.6rem;
     }
 
+    .costume-collection {
+      background: #fff;
+      border: 2px solid rgba(28, 28, 28, 0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      margin-top: 0.55rem;
+    }
+
+    .costume-collection img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 360px;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .collection-flip {
+      position: relative;
+      perspective: 1200px;
+      min-height: 260px;
+      cursor: pointer;
+    }
+
+    .collection-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      transform-style: preserve-3d;
+      transition: transform 620ms ease;
+    }
+
+    .collection-flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      min-height: inherit;
+    }
+
+    .collection-flip-front {
+      background-image: url("assets/photo10.HEIC");
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    .collection-flip-back {
+      transform: rotateY(180deg);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.35;
+      background: linear-gradient(145deg, rgba(58, 134, 255, 0.94), rgba(255, 0, 110, 0.92));
+    }
+
+    .collection-flip.is-flipped .collection-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .collection-flip:hover .collection-flip-inner,
+      .collection-flip:focus-visible .collection-flip-inner {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .collection-copy {
+      padding: 0.85rem;
+    }
+
+    .collection-copy h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.35rem;
+      color: #1e1e1e;
+    }
+
+    .collection-copy p {
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #2d2d2d;
+    }
+
+    @media (max-width: 759px) {
+      .resume-wrap {
+        text-align: center;
+      }
+
+      .resume-preview {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .resume-print {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
     @media (min-width: 760px) {
       .site-header { padding-top: 4.6rem; }
       .site-nav { gap: 2.4rem; }
@@ -324,12 +426,43 @@
       </section>
 
       <section id="panel-gallery" class="panel" role="tabpanel" aria-label="Gallery">
-        <p class="gallery-note">Upload your alteration and costume design photos here later. Placeholders are ready for future images.</p>
-        <div class="placeholder-grid" aria-label="Costuming gallery placeholders">
-          <div class="placeholder">Alteration Photo Slot 1</div>
-          <div class="placeholder">Alteration Photo Slot 2</div>
-          <div class="placeholder">Costume Design Slot 1</div>
-          <div class="placeholder">Costume Design Slot 2</div>
+                <p class="gallery-note"><strong>Click photos to learn more about my work</strong></p>
+        <p class="gallery-note">Costuming gallery collection.</p>
+        <div class="costume-collection" aria-label="Twelfth Night gallery collection">
+          <div class="collection-flip" tabindex="0" role="img" aria-label="Twelfth Night costuming detail photo. Flip for alterations details.">
+            <div class="collection-flip-inner">
+              <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo9.jpg.HEIC');"></div>
+              <div class="collection-flip-face collection-flip-back">Alterations: resewed larger sleeves, attached embroidery, tacked sleeves</div>
+            </div>
+          </div>
+          <div class="collection-copy">
+            <h3>Twelfth Night</h3>
+            <p>Shop Stitcher: Alterations including attaching embroidery, hemming, tacking sleeves, resewing seams, and pressing clothes.</p>
+          </div>
+        </div>
+        <div class="costume-collection" aria-label="Spongebob The Musical gallery collection">
+          <div class="collection-flip" tabindex="0" role="img" aria-label="Spongebob The Musical jellyfish construction photo. Flip for details.">
+            <div class="collection-flip-inner">
+              <div class="collection-flip-face collection-flip-front" aria-hidden="true"></div>
+              <div class="collection-flip-face collection-flip-back">Jellyfish painted and put together</div>
+            </div>
+          </div>
+          <div class="collection-copy">
+            <h3>Spongebob The Musical</h3>
+            <p>Shop Stitcher: Alterations include crafting Jellyfish</p>
+          </div>
+        </div>
+        <div class="costume-collection" aria-label="Personal Projects gallery collection">
+          <div class="collection-flip" tabindex="0" role="img" aria-label="Personal Projects costume build photo. Flip for details.">
+            <div class="collection-flip-inner">
+              <div class="collection-flip-face collection-flip-front" aria-hidden="true" style="background-image: url('assets/photo 11.JPG');"></div>
+              <div class="collection-flip-face collection-flip-back">Sharkboy and LavaGirl Costumes<br />Crafted with foam, paint, cardboard, and superglue<br />Created with few resources before my employement as a stitcher</div>
+            </div>
+          </div>
+          <div class="collection-copy">
+            <h3>Personal Projects</h3>
+            <p>Personal Projects: halloween costumes amd sewing practice which includes unfinished work and work that was completed before I was taught costume crafting techniques</p>
+          </div>
         </div>
       </section>
     </section>
@@ -338,6 +471,7 @@
   <script>
     const buttons = document.querySelectorAll('.subtab-btn');
     const panels = document.querySelectorAll('.panel');
+    const flipCards = document.querySelectorAll('.collection-flip');
 
     function activatePanel(panelId) {
       buttons.forEach((button) => {
@@ -354,6 +488,15 @@
     buttons.forEach((button) => {
       button.addEventListener('click', () => activatePanel(button.dataset.panel));
     });
+
+    const isTouchMode = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (isTouchMode) {
+      flipCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('is-flipped');
+        });
+      });
+    }
   </script>
 </body>
 </html>
